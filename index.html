@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FloodLock — 3-Tier Urban Flood Intelligence & Neural Sentinel</title>
+  <meta name="description" content="Autonomous compound flood forecasting, antecedent water memory, and hydraulic backflow prevention for Mumbai F-South Ward.">
+
+  <!-- Typography: Inter (Sans), JetBrains Mono (Telemetry), Instrument Serif (Editorial Headline) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Design System CSS -->
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════════════════════════
+       4K CINEMATIC ENTRANCE HERO & ARCHITECTURE SHOWCASE
+       ══════════════════════════════════════════════════════════════════════════ -->
+  <section id="heroView">
+    <!-- Atmospheric Storm Backdrop & Technical Grid -->
+    <canvas id="heroStormCanvas" class="hero-canvas-backdrop"></canvas>
+    <div class="hero-grid-overlay"></div>
+
+    <!-- Top Glassmorphic Navigation Bar -->
+    <header class="hero-nav">
+      <div class="brand-badge">
+        <div class="brand-logo-icon" style="background:linear-gradient(135deg, var(--cyan), var(--purple));">FL</div>
+        <div>
+          <div class="brand-text">FloodLock Mumbai</div>
+          <div style="font-size:10px; color:var(--text-muted); font-family:var(--font-mono);">COMPOUND FLOOD INTELLIGENCE // F-SOUTH WARD</div>
+        </div>
+        <div class="status-pill">
+          <span class="status-pulse-dot"></span>
+          <span id="heroBackendBadge">[OFFLINE DEMO MODE: Edge MLP Active]</span>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#gatewayHub" class="btn-launch" style="background:linear-gradient(135deg, var(--cyan), #3b82f6); color:#fff; border:none;">Access Portals ↘</a>
+        <a href="citizen.html" style="color:var(--emerald); font-weight:600;">📱 Citizen App</a>
+        <a href="#architectureSection">3-Tier Architecture</a>
+        <a href="#hydrologySpec">Hydrology &amp; Physics</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn-icon theme-toggle-btn" title="Toggle Theme (Dark / Daylight)">🌓</button>
+        <a href="#gatewayHub" class="btn-launch">Select Role ↗</a>
+      </div>
+    </header>
+
+    <!-- Hero Centerpiece -->
+    <div class="hero-content">
+      <div class="hero-eyebrow">MUNICIPAL CORPORATION OF GREATER MUMBAI // F-SOUTH WARD</div>
+      <h1 class="hero-headline">
+        Precision flood intelligence with <span class="serif-italic">ASSISTIVE AI</span>
+      </h1>
+      <p class="hero-subhead">
+        Autonomous compound flood forecasting for Mumbai's F-South Ward (Hindmata Saucer Basin &amp; Love Grove Outfall). Powered by antecedent water memory, dual physics-informed neural networks, and locked M2M incident dispatch.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#gatewayHub" class="hero-cta-primary" style="text-decoration:none;">
+          Enter Access Portal &rarr;
+        </a>
+        <button class="hero-cta-secondary" id="btnExploreArch">
+          Explore Architecture ↓
+        </button>
+      </div>
+    </div>
+
+    <!-- 3-Column Technical Explainer Pipeline -->
+    <div class="pipeline-strip" id="architectureSection">
+      <div class="pipeline-card">
+        <div class="pipeline-num">01 / MULTI-VECTOR TELEMETRY</div>
+        <div class="pipeline-title">Harmonized Hydrodynamics</div>
+        <div class="pipeline-desc">
+          Ingests real-time precipitation, barometric depression (+1 cm surge per 1 hPa drop), astronomical tide, InSAR subsidence (-14.2 mm/yr), and onshore wind vectors toward Worli Seaface.
+        </div>
+      </div>
+
+      <div class="pipeline-card">
+        <div class="pipeline-num">02 / ANTECEDENT WATER CACHE</div>
+        <div class="pipeline-title">Storm Memory Engine</div>
+        <div class="pipeline-desc">
+          Remembers pre-existing waterlogged puddles (e.g. 14 cm standing depth). Prior water consumes storm drain headroom so subsequent rainfall triggers immediate emergency diversion in minutes.
+        </div>
+      </div>
+
+      <div class="pipeline-card">
+        <div class="pipeline-num">03 / DUAL NEURAL &amp; M2M DISPATCH</div>
+        <div class="pipeline-title">209-Edge &amp; 737-Deep MLPs</div>
+        <div class="pipeline-desc">
+          209-Parameter Edge MLP running in &lt;0.05 ms in user browsers, paired with 737-Parameter Deep Backend MLP and sandboxed Qwen2.5:0.5B (162 tok/s) for automated Dadar TT Viaduct (+8.5m MSL) rerouting.
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════════════════════
+         ROLE SELECTION & PASSCODE LOGIN GATEWAY (USER REQUESTED)
+         ══════════════════════════════════════════════════════════════════════════ -->
+    <section class="gateway-section" id="gatewayHub">
+      <div class="gateway-header-box">
+        <div class="gateway-eyebrow">[ SYSTEM CLEARANCE SELECTION ]</div>
+        <h2 class="gateway-heading">Select Access Clearance</h2>
+        <p style="font-size:14px; color:var(--text-secondary); max-width:620px; margin:8px auto 0; line-height:1.6;">
+          Choose your operational role. Citizen portal is public. Municipal engineering console and infrastructure telemetry monitor require designated passcodes.
+        </p>
+      </div>
+
+      <div class="gateway-grid">
+        <!-- Gateway Card 1: Citizen Public Portal -->
+        <div class="gateway-card">
+          <div class="gateway-badge badge-public">PUBLIC ACCESS // NO PASSCODE</div>
+          <div class="gateway-icon-title">
+            <div class="gateway-icon" style="color:var(--emerald);">📱</div>
+            <div>
+              <div class="gateway-title">Citizen Safety Portal</div>
+              <div style="font-size:11px; color:var(--text-muted); font-family:var(--font-mono);">MOBILE &amp; COMMUTER VIEW</div>
+            </div>
+          </div>
+          <p class="gateway-desc">
+            Streamlined real-time flood monitoring for Mumbai residents. Features conversational AI hazard advisor, live rain &amp; depth radar, conditional safe elevation routes, and 1-click antecedent water testing.
+          </p>
+          <div class="gateway-action-box">
+            <a href="citizen.html" class="btn-gateway-action" style="background:linear-gradient(135deg, var(--emerald), #059669); color:#fff;">
+              <span>Continue as Citizen</span> <span>&rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Gateway Card 2: MCGM Engineering Console (Pass: 1416) -->
+        <div class="gateway-card admin-card">
+          <div class="gateway-badge badge-restricted">RESTRICTED // PASS: 1416</div>
+          <div class="gateway-icon-title">
+            <div class="gateway-icon" style="color:var(--purple);">⚙️</div>
+            <div>
+              <div class="gateway-title">Engineering Command Deck</div>
+              <div style="font-size:11px; color:var(--text-muted); font-family:var(--font-mono);">MUNICIPAL CRISIS WORKSTATION</div>
+            </div>
+          </div>
+          <p class="gateway-desc">
+            4K crisis command console for flood engineers. Features 60 FPS hydrodynamic sliders, real-time neural network node firing visualizer (L1 16N &amp; L2 8N), dual neural net audit, and locked M2M terminal dispatch.
+          </p>
+          <div class="gateway-action-box">
+            <div class="passcode-input-row">
+              <input type="password" id="adminPassInput" class="passcode-input" placeholder="Enter Passcode (1416)" maxlength="8">
+              <button id="btnUnlockAdmin" class="btn-gateway-action btn-gateway-admin">
+                <span>Unlock</span> <span>&rarr;</span>
+              </button>
+            </div>
+            <div id="adminPassError" style="font-size:11px; color:var(--crimson); font-family:var(--font-mono); display:none;">
+              ✕ Invalid Passcode! Please enter 1416.
+            </div>
+          </div>
+        </div>
+
+        <!-- Gateway Card 3: Infrastructure Monitor (Pass: 2324) -->
+        <div class="gateway-card monitor-card">
+          <div class="gateway-badge badge-monitor">DIAGNOSTICS // PASS: 2324</div>
+          <div class="gateway-icon-title">
+            <div class="gateway-icon" style="color:var(--cyan);">📊</div>
+            <div>
+              <div class="gateway-title">Infrastructure Sentinel</div>
+              <div style="font-size:11px; color:var(--text-muted); font-family:var(--font-mono);">HARDWARE &amp; TELEMETRY MESH</div>
+            </div>
+          </div>
+          <p class="gateway-desc">
+            Full-mesh compute diagnostics. Inspects Windows MSI server uptime, Cloudflare zero-trust tunnel latency, Ollama SLM state, Netlify serverless fallback, and temporal state cache persistence.
+          </p>
+          <div class="gateway-action-box">
+            <div class="passcode-input-row">
+              <input type="password" id="monitorPassInput" class="passcode-input" placeholder="Enter Passcode (2324)" maxlength="8">
+              <button id="btnUnlockMonitor" class="btn-gateway-action btn-gateway-monitor">
+                <span>Unlock</span> <span>&rarr;</span>
+              </button>
+            </div>
+            <div id="monitorPassError" style="font-size:11px; color:var(--crimson); font-family:var(--font-mono); display:none;">
+              ✕ Invalid Passcode! Please enter 2324.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hydrology Specification Callout -->
+    <div class="preview-bezel" id="hydrologySpec" style="max-width:1280px; margin:0 auto 60px; width:100%; padding:0 24px;">
+      <div class="bezel-outer">
+        <div class="bezel-inner" style="background: radial-gradient(circle at 50% 50%, #0d1424, #080a0f);">
+          <div style="height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:32px 20px;">
+            <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--cyan); letter-spacing:2px; margin-bottom:12px;">
+              [SYSTEM MONITOR // F-SOUTH WARD 4K LIVE CANVASES]
+            </div>
+            <div style="font-size:24px; font-weight:700; max-width:650px; margin-bottom:18px;">
+              Hindmata Saucer Basin (+1.8m MSL) ↔ Love Grove Sluice Outfall (+3.0m MSL Invert)
+            </div>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--text-secondary); max-width:600px; line-height:1.7;">
+              Gravity drainage completely ceases when coastal tides exceed +3.00m MSL.<br>
+              Real-time compound modeling prevents catastrophic backflow surcharges.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align:center; padding:32px 24px; border-top:1px solid var(--border); color:var(--text-muted); font-size:12px; font-family:var(--font-mono);">
+      MUNICIPAL CORPORATION OF GREATER MUMBAI (MCGM) // PROJECT FLOODLOCK &bull; ZERO DATA LOSS &bull; SECURE FAILOVER
+    </footer>
+  </section>
+
+  <!-- Passcode Script & Storm Canvas Animator -->
+  <script>
+    // 1. Passcode Authentication Logic
+    const btnAdmin = document.getElementById("btnUnlockAdmin");
+    const inputAdmin = document.getElementById("adminPassInput");
+    const errAdmin = document.getElementById("adminPassError");
+
+    function unlockAdmin() {
+      if (inputAdmin.value.trim() === "1416") {
+        sessionStorage.setItem("floodlock_auth_admin", "1416");
+        window.location.href = "admin.html";
+      } else {
+        inputAdmin.classList.add("error");
+        errAdmin.style.display = "block";
+        setTimeout(() => inputAdmin.classList.remove("error"), 600);
+      }
+    }
+    if (btnAdmin) btnAdmin.addEventListener("click", unlockAdmin);
+    if (inputAdmin) {
+      inputAdmin.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") unlockAdmin();
+      });
+    }
+
+    const btnMonitor = document.getElementById("btnUnlockMonitor");
+    const inputMonitor = document.getElementById("monitorPassInput");
+    const errMonitor = document.getElementById("monitorPassError");
+
+    function unlockMonitor() {
+      if (inputMonitor.value.trim() === "2324") {
+        sessionStorage.setItem("floodlock_auth_monitor", "2324");
+        window.location.href = "monitor.html";
+      } else {
+        inputMonitor.classList.add("error");
+        errMonitor.style.display = "block";
+        setTimeout(() => inputMonitor.classList.remove("error"), 600);
+      }
+    }
+    if (btnMonitor) btnMonitor.addEventListener("click", unlockMonitor);
+    if (inputMonitor) {
+      inputMonitor.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") unlockMonitor();
+      });
+    }
+
+    // 2. Storm Canvas Backdrop Animation
+    const canvas = document.getElementById("heroStormCanvas");
+    if (canvas) {
+      const ctx = canvas.getContext("2d");
+      let width, height;
+      const resize = () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      };
+      resize();
+      window.addEventListener("resize", resize);
+
+      const particles = [];
+      const numParticles = Math.min(180, Math.floor(window.innerWidth / 10));
+      for (let i = 0; i < numParticles; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          length: 12 + Math.random() * 20,
+          speed: 8 + Math.random() * 12,
+          opacity: 0.15 + Math.random() * 0.35
+        });
+      }
+
+      const animate = () => {
+        ctx.clearRect(0, 0, width, height);
+        ctx.strokeStyle = "rgba(6, 182, 212, 0.4)";
+        ctx.lineWidth = 1.2;
+
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p.x - 3, p.y + p.length);
+          ctx.stroke();
+
+          p.y += p.speed;
+          p.x -= 1.5;
+          if (p.y > height) {
+            p.y = -20;
+            p.x = Math.random() * width;
+          }
+        }
+        requestAnimationFrame(animate);
+      };
+      animate();
+    }
+
+    // 3. Smooth Scroll to Architecture
+    const exploreBtn = document.getElementById("btnExploreArch");
+    if (exploreBtn) {
+      exploreBtn.addEventListener("click", () => {
+        const sec = document.getElementById("architectureSection");
+        if (sec) sec.scrollIntoView({ behavior: "smooth" });
+      });
+    }
+
+    // 4. Theme Toggle
+    document.querySelectorAll(".theme-toggle-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const cur = document.documentElement.getAttribute("data-theme") || "dark";
+        const next = cur === "dark" ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", next);
+      });
+    });
+  </script>
+</body>
+</html>

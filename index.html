@@ -51,49 +51,97 @@
       </div>
     </header>
 
-    <!-- Hero Centerpiece -->
-    <div class="hero-content">
-      <div class="hero-eyebrow">MUNICIPAL CORPORATION OF GREATER MUMBAI // F-SOUTH WARD</div>
-      <h1 class="hero-headline">
-        Precision flood intelligence with <span class="serif-italic">ASSISTIVE AI</span>
-      </h1>
-      <p class="hero-subhead">
-        Autonomous compound flood forecasting for Mumbai's F-South Ward (Hindmata Saucer Basin &amp; Love Grove Outfall). Powered by antecedent water memory, dual physics-informed neural networks, and locked M2M incident dispatch.
-      </p>
-
-      <div class="hero-cta-group">
-        <a href="#gatewayHub" class="hero-cta-primary" style="text-decoration:none;">
-          Enter Access Portal &rarr;
-        </a>
-        <button class="hero-cta-secondary" id="btnExploreArch">
-          Explore Architecture ↓
-        </button>
-      </div>
-    </div>
-
-    <!-- 3-Column Technical Explainer Pipeline -->
-    <div class="pipeline-strip" id="architectureSection">
-      <div class="pipeline-card">
-        <div class="pipeline-num">01 / MULTI-VECTOR TELEMETRY</div>
-        <div class="pipeline-title">Harmonized Hydrodynamics</div>
-        <div class="pipeline-desc">
-          Ingests real-time precipitation, barometric depression (+1 cm surge per 1 hPa drop), astronomical tide, InSAR subsidence (-14.2 mm/yr), and onshore wind vectors toward Worli Seaface.
+    <!-- 4K Cinematic Storytelling & Audio Prologue Deck -->
+    <div class="prologue-hero-deck">
+      <div class="story-teleprompter" id="cinematicTeleprompter">
+        <div class="story-top-row">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span class="story-chapter-pill" id="prologueChapterBadge">MUMBAI MONSOON SKYFALL</span>
+            <span style="font-family:var(--font-mono); font-size:11px; color:var(--text-muted);">CHAPTER 01 // COMPOUND GENESIS</span>
+          </div>
+          <div class="story-audio-controls">
+            <div class="audio-wave-container" title="Live Audio Speech Equalizer">
+              <span class="audio-wave-bar"></span>
+              <span class="audio-wave-bar"></span>
+              <span class="audio-wave-bar"></span>
+              <span class="audio-wave-bar"></span>
+              <span class="audio-wave-bar"></span>
+            </div>
+            <button class="btn-cinematic-play" id="btnPlayStoryVoice">
+              <span>🎙️ PLAY CINEMATIC BRIEFING</span>
+            </button>
+            <button class="btn-cinematic-mute" id="btnMuteStormAudio">
+              🔊 AMBIENT RAIN ON
+            </button>
+          </div>
         </div>
-      </div>
 
-      <div class="pipeline-card">
-        <div class="pipeline-num">02 / ANTECEDENT WATER CACHE</div>
-        <div class="pipeline-title">Storm Memory Engine</div>
-        <div class="pipeline-desc">
-          Remembers pre-existing waterlogged puddles (e.g. 14 cm standing depth). Prior water consumes storm drain headroom so subsequent rainfall triggers immediate emergency diversion in minutes.
+        <h1 class="prologue-quote" id="prologueQuoteHeadline">
+          One thousand and ninety-four lives were lost when the sky broke.
+        </h1>
+
+        <div class="prologue-subtitle-box">
+          <div style="font-family:var(--font-mono); font-size:10px; color:var(--cyan); letter-spacing:1.5px; margin-bottom:4px;">
+            AUDIO TRANSCRIPT // HISTORICAL COMPOUND FLOOD MEMORIAL:
+          </div>
+          <div id="prologueSubtitleText">
+            July 26, 2005. 2:00 PM. The skies above Mumbai ruptured, dumping 944 millimeters of rain in twenty-four hours. Over 1,094 citizens drowned in silent, rising waters. An entire metropolis was submerged.
+          </div>
         </div>
-      </div>
 
-      <div class="pipeline-card">
-        <div class="pipeline-num">03 / DUAL NEURAL &amp; M2M DISPATCH</div>
-        <div class="pipeline-title">209-Edge &amp; 737-Deep MLPs</div>
-        <div class="pipeline-desc">
-          209-Parameter Edge MLP running in &lt;0.05 ms in user browsers, paired with 737-Parameter Deep Backend MLP and sandboxed Qwen2.5:0.5B (162 tok/s) for automated Dadar TT Viaduct (+8.5m MSL) rerouting.
+        <!-- Interactive 4-Stage Timeline Scrubber -->
+        <div class="story-scrub-bar">
+          <button class="story-scrub-btn active" data-chapter="0">
+            <span class="scrub-index">01 // SKYFALL</span>
+            <span class="scrub-title">The Single Drop (2005)</span>
+          </button>
+          <button class="story-scrub-btn" data-chapter="1">
+            <span class="scrub-index">02 // DADAR TT</span>
+            <span class="scrub-title">Hindmata Basin Impact</span>
+          </button>
+          <button class="story-scrub-btn" data-chapter="2">
+            <span class="scrub-index">03 // ARABIAN SEA</span>
+            <span class="scrub-title">3.87m Tide Choke</span>
+          </button>
+          <button class="story-scrub-btn" data-chapter="3">
+            <span class="scrub-index">04 // VIADUCT</span>
+            <span class="scrub-title">209-MLP Sentinel (+8.5m)</span>
+          </button>
+        </div>
+
+        <!-- 4K Memorial Metrics Grid -->
+        <div class="prologue-memorial-grid">
+          <div class="prologue-stat-card">
+            <div class="stat-huge-number" id="prologueStatNum" style="color:#38bdf8;">1,094</div>
+            <div class="stat-huge-label" id="prologueStatLabel">LIVES EXTINGUISHED (2005)</div>
+          </div>
+          <div class="prologue-stat-card">
+            <div class="stat-huge-number" style="color:#f59e0b;">944 mm</div>
+            <div class="stat-huge-label">24-HR RECORD CLOUDBURST</div>
+          </div>
+          <div class="prologue-stat-card">
+            <div class="stat-huge-number" style="color:#ef4444;">100%</div>
+            <div class="stat-huge-label">OUTFALL BACKFLOW LOCK</div>
+          </div>
+          <div class="prologue-stat-card">
+            <div class="stat-huge-number" style="color:#10b981;">0.05 ms</div>
+            <div class="stat-huge-label">IN-BROWSER EDGE MLP LATENCY</div>
+          </div>
+        </div>
+
+        <!-- Call to Action Gateways -->
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-top:8px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.06);">
+          <div style="font-size:12px; color:var(--text-secondary); font-family:var(--font-mono);">
+            SCROLL DOWN TO NAVIGATE THROUGH THE FLOOD STORY OR SELECT CLEARANCE PORTAL
+          </div>
+          <div style="display:flex; gap:12px;">
+            <a href="#gatewayHub" class="btn-launch" style="background:linear-gradient(135deg, var(--cyan), var(--emerald)); color:#050810; font-weight:700;">
+              Enter Clearance Portals ↘
+            </a>
+            <a href="citizen.html" class="btn-launch" style="background:rgba(255,255,255,0.08); color:#ffffff; border:1px solid var(--border);">
+              📱 Quick Citizen View ↗
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -211,7 +259,10 @@
     </footer>
   </section>
 
-  <!-- Passcode Script & Storm Canvas Animator -->
+  <!-- 4K Cinematic Storytelling & Audio Narration Engine -->
+  <script src="js/cinematic_prologue.js"></script>
+
+  <!-- Passcode Script & UI Controls -->
   <script>
     // 1. Passcode Authentication Logic
     const btnAdmin = document.getElementById("btnUnlockAdmin");
@@ -256,64 +307,7 @@
       });
     }
 
-    // 2. Storm Canvas Backdrop Animation
-    const canvas = document.getElementById("heroStormCanvas");
-    if (canvas) {
-      const ctx = canvas.getContext("2d");
-      let width, height;
-      const resize = () => {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-      };
-      resize();
-      window.addEventListener("resize", resize);
-
-      const particles = [];
-      const numParticles = Math.min(180, Math.floor(window.innerWidth / 10));
-      for (let i = 0; i < numParticles; i++) {
-        particles.push({
-          x: Math.random() * width,
-          y: Math.random() * height,
-          length: 12 + Math.random() * 20,
-          speed: 8 + Math.random() * 12,
-          opacity: 0.15 + Math.random() * 0.35
-        });
-      }
-
-      const animate = () => {
-        ctx.clearRect(0, 0, width, height);
-        ctx.strokeStyle = "rgba(6, 182, 212, 0.4)";
-        ctx.lineWidth = 1.2;
-
-        for (let i = 0; i < particles.length; i++) {
-          const p = particles[i];
-          ctx.beginPath();
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(p.x - 3, p.y + p.length);
-          ctx.stroke();
-
-          p.y += p.speed;
-          p.x -= 1.5;
-          if (p.y > height) {
-            p.y = -20;
-            p.x = Math.random() * width;
-          }
-        }
-        requestAnimationFrame(animate);
-      };
-      animate();
-    }
-
-    // 3. Smooth Scroll to Architecture
-    const exploreBtn = document.getElementById("btnExploreArch");
-    if (exploreBtn) {
-      exploreBtn.addEventListener("click", () => {
-        const sec = document.getElementById("architectureSection");
-        if (sec) sec.scrollIntoView({ behavior: "smooth" });
-      });
-    }
-
-    // 4. Theme Toggle
+    // 2. Theme Toggle
     document.querySelectorAll(".theme-toggle-btn").forEach(btn => {
       btn.addEventListener("click", () => {
         const cur = document.documentElement.getAttribute("data-theme") || "dark";

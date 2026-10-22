@@ -1500,3 +1500,261 @@ input[type="range"]::-webkit-slider-thumb {
   text-align: center;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ * 12. 4K CINEMATIC PROLOGUE & AUDIO STORYTELLING SYSTEM
+ * ═══════════════════════════════════════════════════════════════════════════ */
+
+.prologue-hero-deck {
+  position: relative;
+  z-index: 10;
+  max-width: 1140px;
+  margin: 36px auto 24px auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.story-teleprompter {
+  background: rgba(13, 17, 23, 0.82);
+  backdrop-filter: blur(24px) saturate(190%);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 16px;
+  padding: 30px 36px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(6, 182, 212, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.story-teleprompter::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyan), var(--emerald), transparent);
+}
+
+.story-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.story-chapter-pill {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 5px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--cyan);
+  color: var(--cyan);
+  background: rgba(6, 182, 212, 0.08);
+  text-transform: uppercase;
+}
+
+.story-audio-controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Audio Waveform Equalizer */
+.audio-wave-container {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 20px;
+  padding: 0 8px;
+}
+
+.audio-wave-bar {
+  width: 3px;
+  height: 6px;
+  background: var(--cyan);
+  border-radius: 2px;
+  transition: height 0.15s ease;
+}
+
+.audio-wave-bar.speaking {
+  animation: wavePulse 0.8s ease-in-out infinite alternate;
+}
+
+.audio-wave-bar.speaking:nth-child(1) { animation-delay: 0.1s; height: 16px; }
+.audio-wave-bar.speaking:nth-child(2) { animation-delay: 0.3s; height: 10px; }
+.audio-wave-bar.speaking:nth-child(3) { animation-delay: 0.2s; height: 18px; }
+.audio-wave-bar.speaking:nth-child(4) { animation-delay: 0.4s; height: 12px; }
+.audio-wave-bar.speaking:nth-child(5) { animation-delay: 0.15s; height: 20px; }
+
+@keyframes wavePulse {
+  0% { height: 4px; opacity: 0.4; }
+  100% { height: 20px; opacity: 1; }
+}
+
+.btn-cinematic-play {
+  background: linear-gradient(135deg, var(--cyan), #2563eb);
+  color: #ffffff;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 10px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 18px rgba(6, 182, 212, 0.35);
+}
+
+.btn-cinematic-play:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(6, 182, 212, 0.5);
+}
+
+.btn-cinematic-mute {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-cinematic-mute:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+.btn-cinematic-mute.muted {
+  border-color: var(--crimson);
+  color: var(--crimson);
+}
+
+/* Quote Headline & Story Text */
+.prologue-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 38px;
+  line-height: 1.25;
+  color: #ffffff;
+  margin: 4px 0;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+}
+
+.prologue-subtitle-box {
+  background: rgba(7, 9, 14, 0.7);
+  border-left: 3px solid var(--cyan);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 20px;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text-primary);
+  min-height: 56px;
+}
+
+/* Timeline Chapter Scrubber Bar */
+.story-scrub-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.story-scrub-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 10px 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.story-scrub-btn:hover {
+  background: rgba(6, 182, 212, 0.08);
+  border-color: rgba(6, 182, 212, 0.4);
+}
+
+.story-scrub-btn.active {
+  background: rgba(6, 182, 212, 0.15);
+  border-color: var(--cyan);
+  box-shadow: 0 0 16px rgba(6, 182, 212, 0.25);
+}
+
+.scrub-index {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 1.5px;
+}
+
+.story-scrub-btn.active .scrub-index {
+  color: var(--cyan);
+  font-weight: 700;
+}
+
+.scrub-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 4K Memorial Metrics Grid */
+.prologue-memorial-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.prologue-stat-card {
+  background: rgba(9, 12, 18, 0.7);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  text-align: center;
+}
+
+.stat-huge-number {
+  font-family: var(--font-mono);
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.stat-huge-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .prologue-quote { font-size: 26px; }
+  .story-scrub-bar { grid-template-columns: repeat(2, 1fr); }
+  .prologue-memorial-grid { grid-template-columns: repeat(2, 1fr); }
+  .story-teleprompter { padding: 20px; }
+}
+

@@ -27,16 +27,41 @@
       this.isReady = false;
       this.duration = 12.0;
 
-      this.video.addEventListener("loadedmetadata", () => {
+      const markReady = () => {
         this.isReady = true;
-        this.duration = this.video.duration || 12.0;
-      });
+        this.duration = (this.video.duration && !isNaN(this.video.duration)) ? this.video.duration : 12.0;
+      };
+
+      this.video.addEventListener("loadedmetadata", markReady);
+      this.video.addEventListener("canplaythrough", markReady);
 
       // In case metadata is already cached
       if (this.video.readyState >= 1) {
-        this.isReady = true;
-        this.duration = this.video.duration || 12.0;
+        markReady();
       }
+
+      // Handle missing video gracefully with fallback poster
+      this.video.addEventListener("error", () => {
+        console.warn("[FloodLock] Background video unavailable; falling back to SVG poster.");
+        if (this.video.parentElement) {
+          this.video.parentElement.classList.add("video-fallback-active");
+        }
+      });
+
+      // Direct scroll listener for instantaneous frame scrubbing
+      window.addEventListener("scroll", () => {
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollFraction = maxScroll > 0 ? Math.min(1.0, Math.max(0.0, window.scrollY / maxScroll)) : 0;
+        this.targetTime = scrollFraction * (this.video.duration || this.duration);
+        
+        // Immediate seek when scrolling aggressively
+        if (this.isReady && this.video) {
+          const diff = this.targetTime - this.video.currentTime;
+          if (Math.abs(diff) > 0.04) {
+            this.video.currentTime += diff * 0.45;
+          }
+        }
+      }, { passive: true });
 
       this.update = this.update.bind(this);
       requestAnimationFrame(this.update);
@@ -46,12 +71,12 @@
       if (this.isReady && this.video) {
         const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
         const scrollFraction = maxScroll > 0 ? Math.min(1.0, Math.max(0.0, window.scrollY / maxScroll)) : 0;
-        this.targetTime = scrollFraction * this.duration;
+        this.targetTime = scrollFraction * (this.video.duration || this.duration);
 
-        // Smooth Apple-style video lerping
+        // Smooth 60 FPS Apple-style video lerping
         const diff = this.targetTime - this.video.currentTime;
-        if (Math.abs(diff) > 0.02) {
-          this.video.currentTime += diff * 0.22;
+        if (Math.abs(diff) > 0.005) {
+          this.video.currentTime += diff * 0.25;
         }
       }
       requestAnimationFrame(this.update);

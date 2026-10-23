@@ -27,11 +27,20 @@
         RESTRICTED MUNICIPAL CLEARANCE
       </div>
       <h3 style="font-size:20px; font-weight:700; margin-bottom:8px;">MCGM Engineering Console</h3>
-      <p style="font-size:12px; color:var(--text-secondary); line-height:1.5; margin-bottom:20px;">
+      <p style="font-size:12px; color:var(--text-secondary); line-height:1.5; margin-bottom:16px;">
         This workstation provides live 60 FPS physics control and neural node visualizers. Please enter your municipal passcode to continue.
       </p>
+      <div class="apple-code-pill admin-code-pill" onclick="document.getElementById('gatePassInput').value='1416'; document.getElementById('btnGateUnlock').click();" style="margin:0 auto 16px auto; cursor:pointer;" title="Click to auto-fill passcode 1416">
+        <span class="code-key-icon">🔑</span>
+        <span class="code-label">DEFAULT MUNICIPAL CODE:</span>
+        <span class="code-val">1416</span>
+        <span class="code-tap-hint">(Click to auto-fill)</span>
+      </div>
       <div style="display:flex; gap:8px; margin-bottom:12px;">
-        <input type="password" id="gatePassInput" class="passcode-input" placeholder="Passcode (1416)" style="text-align:center; font-size:16px; letter-spacing:4px;" maxlength="8">
+        <div class="passcode-input-wrapper">
+          <input type="text" id="gatePassInput" class="passcode-input" placeholder="Passcode (1416)" style="text-align:center; font-size:16px; letter-spacing:4px; width:100%;" maxlength="8">
+          <span class="passcode-watermark">1416</span>
+        </div>
         <button id="btnGateUnlock" class="btn-gateway-action btn-gateway-admin" style="padding:10px 18px;">
           Unlock ↗
         </button>

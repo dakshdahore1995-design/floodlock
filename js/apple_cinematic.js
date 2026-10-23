@@ -353,6 +353,20 @@
         if (e.key === "Enter") unlockMonitor();
       });
     }
+
+    // Global helper for one-tap auto-fill & unlock from the visual badge
+    window.autoFillAndUnlock = function (inputId, code, btnId) {
+      const input = document.getElementById(inputId);
+      if (input) {
+        input.value = code;
+        input.style.borderColor = "#10b981";
+        input.style.boxShadow = "0 0 12px rgba(16, 185, 129, 0.4)";
+        setTimeout(() => {
+          const btn = document.getElementById(btnId);
+          if (btn) btn.click();
+        }, 150);
+      }
+    };
   }
 
   // ══════════════════════════════════════════════════════════════════════════

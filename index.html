@@ -39,7 +39,7 @@
       <a href="#sluiceGate" style="color:var(--text-secondary); text-decoration:none; font-size:12px; font-weight:500;">Sluice Lock</a>
       <a href="#neuralMesh" style="color:var(--text-secondary); text-decoration:none; font-size:12px; font-weight:500;">Edge MLP</a>
       <a href="#viaductBypass" style="color:var(--text-secondary); text-decoration:none; font-size:12px; font-weight:500;">Viaduct (+8.5m)</a>
-      <a href="#portalAccess" style="color:var(--cyan); text-decoration:none; font-size:12px; font-weight:600;">Portals ↘</a>
+      <a href="#portalAccess" style="color:var(--cyan); text-decoration:none; font-size:12px; font-weight:600;">Portals (1416 / 2324) ↘</a>
       <div class="status-pill offline-active" style="font-size:10px; padding:3px 8px;">
         <span class="status-pulse-dot" style="background:var(--cyan);"></span>
         <span>[OFFLINE DEMO MODE: Edge MLP Active]</span>
@@ -383,9 +383,19 @@
                 4K crisis workstation for drainage engineers. 60 FPS hydrodynamic sliders, live neuron node firing visualizer, and locked M2M terminal dispatch.
               </p>
             </div>
-            <div style="display:flex; flex-direction:column; gap:8px;">
+            <div style="display:flex; flex-direction:column; gap:10px;">
+              <!-- Prominent Clickable Passcode Badge -->
+              <div class="apple-code-pill admin-code-pill" onclick="autoFillAndUnlock('adminPassInput', '1416', 'btnUnlockAdmin')" title="Click to auto-fill passcode 1416">
+                <span class="code-key-icon">🔑</span>
+                <span class="code-label">ACCESS CODE:</span>
+                <span class="code-val">1416</span>
+                <span class="code-tap-hint">(Click to auto-fill)</span>
+              </div>
               <div style="display:flex; gap:8px;">
-                <input type="password" id="adminPassInput" class="passcode-input" placeholder="Passcode (1416)" maxlength="8" style="font-size:14px; padding:8px 12px;">
+                <div class="passcode-input-wrapper">
+                  <input type="text" id="adminPassInput" class="passcode-input" placeholder="Passcode (1416)" maxlength="8" style="font-size:13px; padding:9px 12px; width:100%; font-family:var(--font-mono); font-weight:600;">
+                  <span class="passcode-watermark">1416</span>
+                </div>
                 <button id="btnUnlockAdmin" class="btn-launch" style="background:linear-gradient(135deg, var(--purple), #7c3aed); color:#fff; border:none; padding:8px 16px;">
                   Unlock &rarr;
                 </button>
@@ -406,9 +416,19 @@
                 Hardware mesh telemetry. Inspects Windows compute node health, Cloudflare tunnel latency, and persistent temporal state cache.
               </p>
             </div>
-            <div style="display:flex; flex-direction:column; gap:8px;">
+            <div style="display:flex; flex-direction:column; gap:10px;">
+              <!-- Prominent Clickable Passcode Badge -->
+              <div class="apple-code-pill monitor-code-pill" onclick="autoFillAndUnlock('monitorPassInput', '2324', 'btnUnlockMonitor')" title="Click to auto-fill passcode 2324">
+                <span class="code-key-icon">🔑</span>
+                <span class="code-label">MONITOR CODE:</span>
+                <span class="code-val">2324</span>
+                <span class="code-tap-hint">(Click to auto-fill)</span>
+              </div>
               <div style="display:flex; gap:8px;">
-                <input type="password" id="monitorPassInput" class="passcode-input" placeholder="Passcode (2324)" maxlength="8" style="font-size:14px; padding:8px 12px;">
+                <div class="passcode-input-wrapper">
+                  <input type="text" id="monitorPassInput" class="passcode-input" placeholder="Passcode (2324)" maxlength="8" style="font-size:13px; padding:9px 12px; width:100%; font-family:var(--font-mono); font-weight:600;">
+                  <span class="passcode-watermark">2324</span>
+                </div>
                 <button id="btnUnlockMonitor" class="btn-launch" style="background:linear-gradient(135deg, var(--cyan), #0284c7); color:#fff; border:none; padding:8px 16px;">
                   Unlock &rarr;
                 </button>

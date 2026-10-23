@@ -1781,7 +1781,7 @@ input[type="range"]::-webkit-slider-thumb {
   height: 100vh;
   z-index: -1;
   pointer-events: none;
-  background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.35) 0%, rgba(4, 5, 8, 0.82) 70%, #000000 100%);
+  background: linear-gradient(180deg, rgba(3, 5, 8, 0.4) 0%, rgba(3, 5, 8, 0.85) 100%);
 }
 
 /* Apple-Style Ultra-Clean Glass Navbar */
@@ -1822,12 +1822,12 @@ input[type="range"]::-webkit-slider-thumb {
   z-index: 10;
   width: 100%;
   max-width: 1200px;
-  min-height: 400vh; /* 400vh scroll runway for frame-accurate 4K scrubbing */
+  min-height: 500vh; /* 500vh scroll runway for frame-accurate 4K scrubbing */
   margin: 0 auto;
   padding: 100px 24px 80px 24px;
   display: flex;
   flex-direction: column;
-  gap: 140px; /* Generous Apple-style pacing */
+  gap: 160px; /* Generous Apple-style pacing */
 }
 
 /* Primary Action CTA Buttons in Hero */
@@ -2036,16 +2036,16 @@ input[type="range"]::-webkit-slider-thumb {
 
 /* Stacked Frosted Glass Story Cards */
 .apple-story-card {
-  background: rgba(10, 14, 22, 0.75);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(8, 11, 17, 0.75);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  padding: 48px;
+  border-radius: 16px;
+  padding: 32px;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: 44px;
+  gap: 36px;
   align-items: center;
   position: relative;
   overflow: hidden;

@@ -82,7 +82,7 @@ function harmonizePhysics(inputs) {
   };
 }
 
-const MSI_TUNNEL_URL = "https://accepts-warm-sleeping-danny.trycloudflare.com";
+const MSI_TUNNEL_URL = "https://subscribers-sustained-cannon-moderator.trycloudflare.com";
 
 exports.handler = async (event, context) => {
   const headers = {

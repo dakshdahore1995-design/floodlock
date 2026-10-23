@@ -9,12 +9,12 @@
  */
 
 const DEFAULT_CONFIG = {
-  // Public HTTPS Cloudflare Tunnel directly to Windows Laptop (YuvaMPS1 @ 192.168.1.105)
+  // Public HTTPS Cloudflare Tunnel directly to Windows Laptop (YuvaMPS1 @ 192.168.1.106)
   // Accessible from ANY network, phone, or internet connection globally without local Wi-Fi limits!
-  PUBLIC_TUNNEL_URL: "https://accepts-warm-sleeping-danny.trycloudflare.com",
+  PUBLIC_TUNNEL_URL: "https://subscribers-sustained-cannon-moderator.trycloudflare.com",
   
   // Local network fallback (if accessed on the same Wi-Fi)
-  LOCAL_BACKEND_URL: "http://192.168.1.105:8000",
+  LOCAL_BACKEND_URL: "http://192.168.1.106:8000",
 
   // Cloud secondary fallback (Render / Fly.io)
   CLOUD_BACKEND_URL: "https://floodlock-backend-cloud.onrender.com",

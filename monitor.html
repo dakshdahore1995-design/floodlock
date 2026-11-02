@@ -551,6 +551,7 @@
       const pingLabel = document.getElementById("pingStats");
       log.textContent = "[DIAGNOSTIC TEST STARTED] Pinging multi-tier infrastructure nodes...\n";
 
+      const cfEdgeUrl = window.FloodConfig.get("CLOUDFLARE_EDGE_URL") || "https://floodlock-backend.dakshdahore1995.workers.dev";
       const tunnelUrl = window.FloodConfig.get("PUBLIC_TUNNEL_URL");
       const localUrl = window.FloodConfig.get("LOCAL_BACKEND_URL");
 
@@ -567,8 +568,31 @@
         }
       };
 
-      // 1. Ping Public Cloudflare Tunnel
-      log.textContent += `[1/5] Pinging Public Cloudflare Tunnel: ${tunnelUrl}/health ...\n`;
+      // 1. Ping 24/7 Cloudflare Edge Worker Backend
+      log.textContent += `[1/6] Pinging 24/7 Cloudflare Edge Backend: ${cfEdgeUrl}/health ...\n`;
+      const tCF0 = performance.now();
+      try {
+        const resCF = await timedFetch(`${cfEdgeUrl}/health`, 2000);
+        const latCF = Math.round(performance.now() - tCF0);
+        if (resCF && resCF.ok) {
+          const dataCF = await resCF.json();
+          pingLabel.textContent = `Cloudflare 24/7 Edge: ${latCF} ms (Location: ${dataCF.location})`;
+          log.textContent += `  ✓ [OK] Cloudflare 24/7 Edge HTTP 200 Received in ${latCF} ms\n`;
+          log.textContent += `  ✓ [OK] Runtime: ${dataCF.runtime} (Colo: ${dataCF.location})\n`;
+          log.textContent += `  ✓ [OK] 737 Deep Neural Mesh: ${dataCF.deep_model_params} Parameters ACTIVE\n`;
+          log.textContent += `  ✓ [OK] 209 Browser Edge MLP: ${dataCF.edge_model_params} Parameters ACTIVE\n`;
+          log.textContent += `  ✓ [OK] Workers AI (Qwen 2.5): ${dataCF.workers_ai_enabled ? "AVAILABLE" : "STANDBY"}\n`;
+          log.textContent += `  ✓ [OK] High-Availability Status: ${dataCF.uptime}\n\n`;
+          document.getElementById("valUptime").textContent = "24x7 Continuous Edge";
+        } else {
+          log.textContent += `  ○ [STANDBY] Cloudflare edge check returned non-200.\n\n`;
+        }
+      } catch (e) {
+        log.textContent += `  ○ [STANDBY] Cloudflare edge check exception.\n\n`;
+      }
+
+      // 2. Ping Public Cloudflare Tunnel (MSI1 Workstation)
+      log.textContent += `[2/6] Pinging Public Cloudflare Tunnel: ${tunnelUrl}/health ...\n`;
       const t0 = performance.now();
       try {
         const res = await timedFetch(`${tunnelUrl}/health`, 1500);

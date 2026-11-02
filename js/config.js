@@ -9,8 +9,10 @@
  */
 
 const DEFAULT_CONFIG = {
+  // 24/7 Permanent Cloudflare Edge Backend (Zero Local PC Compute, Qwen AI & Dual MLP)
+  CLOUDFLARE_EDGE_URL: "https://floodlock-backend.dakshdahore1995.workers.dev",
+
   // Public HTTPS Cloudflare Tunnel directly to Windows Laptop (YuvaMPS1 @ 192.168.1.106)
-  // Accessible from ANY network, phone, or internet connection globally without local Wi-Fi limits!
   PUBLIC_TUNNEL_URL: "https://subscribers-sustained-cannon-moderator.trycloudflare.com",
   
   // Local network fallback (if accessed on the same Wi-Fi)
@@ -63,7 +65,28 @@ class ConfigManager {
       }
     };
 
-    // 1. Try Public HTTPS Tunnel First (1500ms timeout)
+    // 1. Try 24/7 Permanent Cloudflare Edge Backend First (1500ms timeout)
+    const cfUrl = this.get("CLOUDFLARE_EDGE_URL") || "https://floodlock-backend.dakshdahore1995.workers.dev";
+    if (cfUrl) {
+      const res = await timedFetch(`${cfUrl}/health`, 1500);
+      if (res && res.ok) {
+        try {
+          const data = await res.json();
+          this.activeBackend = "CLOUDFLARE";
+          this.telemetryCache = data;
+          return {
+            tier: "CLOUDFLARE",
+            url: cfUrl,
+            name: "CLOUDFLARE 24/7 EDGE [QWEN & DUAL MLP]",
+            data: data
+          };
+        } catch (e) {
+          // JSON parse issue, fall through
+        }
+      }
+    }
+
+    // 2. Try Public HTTPS Tunnel (1500ms timeout)
     const tunnelUrl = this.get("PUBLIC_TUNNEL_URL");
     if (tunnelUrl) {
       const res = await timedFetch(`${tunnelUrl}/health`, 1500);

@@ -468,7 +468,7 @@ class FloodApp {
     // 1. Try detected backend URL if available
     const backendUrl = this.backendInfo.url || (this.backendInfo.tier !== "EDGE" ? window.FloodConfig.get("PUBLIC_TUNNEL_URL") : null);
     if (backendUrl) {
-      const res = await timedFetch(`${backendUrl}/api/live-mumbai`, 1500);
+      const res = await timedFetch(`${backendUrl}/api/live-mumbai`, 5000);
       if (res && res.ok) {
         try {
           const data = await res.json();

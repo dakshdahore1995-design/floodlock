@@ -65,10 +65,10 @@ class ConfigManager {
       }
     };
 
-    // 1. Try 24/7 Permanent Cloudflare Edge Backend First (1500ms timeout)
+    // 1. Try 24/7 Permanent Cloudflare Edge Backend First (5000ms — generous for cold starts)
     const cfUrl = this.get("CLOUDFLARE_EDGE_URL") || "https://floodlock-backend.dakshdahore1995.workers.dev";
     if (cfUrl) {
-      const res = await timedFetch(`${cfUrl}/health`, 1500);
+      const res = await timedFetch(`${cfUrl}/health`, 5000);
       if (res && res.ok) {
         try {
           const data = await res.json();

@@ -2,7 +2,7 @@
  * floodlock_frontend/js/apple_cinematic.js
  * ────────────────────────────────────────────────────────────────────────────
  * Apple-Grade 4K Scroll-Driven Cinematic Engine & Interactive Physics Showcase
- * 
+ *
  * Features:
  *  - Fixed background video scrubbing synced to window scroll progress via rAF
  *  - Interactive Chapter 1: Hindmata Saucer Basin & Antecedent Memory Slider
@@ -10,6 +10,7 @@
  *  - Interactive Chapter 3: 209-Parameter Edge MLP Forward Pass Node Visualizer
  *  - Interactive Chapter 4: Dadar TT Elevated Viaduct (+8.5m) Priority Corridor
  *  - Ambient Web Audio rain synthesis & Web Speech API emotional audio briefing
+ *  - 24/7 Cloudflare Edge Backend Status Monitor with retry & 30s re-poll
  */
 
 (function () {
@@ -53,7 +54,7 @@
         const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
         const scrollFraction = maxScroll > 0 ? Math.min(1.0, Math.max(0.0, window.scrollY / maxScroll)) : 0;
         this.targetTime = scrollFraction * (this.video.duration || this.duration);
-        
+
         // Immediate seek when scrolling aggressively
         if (this.isReady && this.video) {
           const diff = this.targetTime - this.video.currentTime;
@@ -171,7 +172,7 @@
       // basin_threshold_mm = max(5.0, 45.0 * storage_factor - antecedent_depth_cm * 2.0)
       const storageFactor = 1.0 - (14.2 / 110.0); // InSAR subsidence penalty
       const remainingHeadroomMm = Math.max(5.0, (45.0 * storageFactor) - (depthCm * 1.8));
-      
+
       if (capacityText) capacityText.textContent = `${remainingHeadroomMm.toFixed(1)} mm`;
 
       // Water ponding graphic height
@@ -395,7 +396,84 @@
   }
 
   // ══════════════════════════════════════════════════════════════════════════
-  // 7. DOM READY INITIALIZATION
+  // 7. 24/7 CLOUDFLARE EDGE BACKEND STATUS MONITOR
+  // ══════════════════════════════════════════════════════════════════════════
+
+  /**
+   * Single health probe — returns true if Cloudflare Edge is reachable.
+   * Updates the hero pill UI on success or leaves it for caller to handle.
+   */
+  async function probeCloudflareEdge() {
+    const pill = document.getElementById("heroGlobalStatusPill");
+    const text = document.getElementById("heroGlobalStatusText");
+    const dot  = document.getElementById("heroGlobalStatusDot");
+    if (!pill || !text || !dot) return false;
+
+    const cfUrl = (window.FloodConfig && window.FloodConfig.get("CLOUDFLARE_EDGE_URL"))
+      || "https://floodlock-backend.dakshdahore1995.workers.dev";
+
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 6000); // 6s — generous for cold starts
+      const res = await fetch(`${cfUrl}/health`, { signal: controller.signal, cache: "no-store" });
+      clearTimeout(timeoutId);
+
+      if (res && res.ok) {
+        const data = await res.json();
+        const colo   = data.location          || "GLOBAL";
+        const params = data.deep_model_params  || 737;
+
+        text.textContent        = `24/7 CLOUDFLARE EDGE LIVE [${colo} // Qwen AI · ${params}P]`;
+        dot.style.background    = "#10b981";
+        pill.style.borderColor  = "rgba(16, 185, 129, 0.4)";
+        pill.style.background   = "rgba(16, 185, 129, 0.1)";
+        pill.style.color        = "#10b981";
+        pill.classList.remove("offline-active");
+        pill.classList.add("cloud-active");
+        return true;
+      }
+    } catch (e) {
+      console.warn("[FloodLock] Cloudflare Edge probe failed:", e.message);
+    }
+    return false;
+  }
+
+  /**
+   * On DOMContentLoaded: probe → retry after 3s if cold start → show offline.
+   * Then keeps re-polling every 30s to stay in sync.
+   */
+  async function initBackendStatusMonitor() {
+    const pill = document.getElementById("heroGlobalStatusPill");
+    const text = document.getElementById("heroGlobalStatusText");
+    const dot  = document.getElementById("heroGlobalStatusDot");
+    if (!pill || !text || !dot) return;
+
+    // First probe
+    const alive = await probeCloudflareEdge();
+
+    if (!alive) {
+      // Automatic retry after 3s (Cloudflare cold start / slow network)
+      await new Promise(r => setTimeout(r, 3000));
+      const retry = await probeCloudflareEdge();
+
+      if (!retry) {
+        // True offline fallback — both probes failed
+        text.textContent       = "[OFFLINE DEMO MODE: Edge MLP Active]";
+        dot.style.background   = "var(--cyan)";
+        pill.style.borderColor = "rgba(6, 182, 212, 0.4)";
+        pill.style.background  = "rgba(6, 182, 212, 0.08)";
+        pill.style.color       = "var(--cyan)";
+        pill.classList.remove("cloud-active");
+        pill.classList.add("offline-active");
+      }
+    }
+
+    // Keep re-polling every 30s so pill recovers automatically if network comes back
+    setInterval(probeCloudflareEdge, 30_000);
+  }
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // 8. DOM READY INITIALIZATION
   // ══════════════════════════════════════════════════════════════════════════
   document.addEventListener("DOMContentLoaded", () => {
     new AppleScrollVideoScrubber("scrollVideo");
@@ -405,5 +483,6 @@
     initSluiceSimulator();
     initAudioBriefing(audio);
     initPasscodeAuth();
+    initBackendStatusMonitor();
   });
 })();
